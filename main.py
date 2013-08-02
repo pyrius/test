@@ -14,5 +14,4 @@ dir = sys.argv[1]
 print path
 #print os.listdir(dir)
 files = os.listdir(dir)
- for item in files:
- 	print "-- " + item
+print files
