@@ -1,3 +1,6 @@
+'''
+Simple file viewer
+'''
 import os, sys
 
 def file_open(fnm):
