@@ -15,7 +15,18 @@ def print_footer(dif):
 	print '-' * 60
 
 def usage_help():
-	print "command usage: ./log_parser [file_name]"
+	print "Error!\nusage: ./log_parser.py -hv [file_name]"
+	sys.exit(0) 
+
+def print_help():
+	print "==========Help============"
+	print "-h    \tPrinting this help \n"
+	print "-v    \tPrinting the version \n"
+	sys.exit(0) 
+
+def print_version():
+	print "Version: alpha-0.1.3.1"
+	sys.exit(0) 
 
 def open_file(f_name):
 	with open('log.txt') as f:
@@ -31,9 +42,22 @@ def add_inter_dct(line, int_ptr, int_dct):
 			int_dct[t_lst[0]] = 1	
 
 if __name__ == '__main__':
-	if len(sys.argv[]) < 1:
+
+	
+	if len(sys.argv) < 2:
 		usage_help()
-		sys.exit(0) 
+	
+	try :
+		if sys.argv.index("-h"):
+			print_help()
+	except ValueError:
+		pass
+
+	try :
+		if sys.argv.index("-v"):
+			print_version()			
+	except ValueError:
+		pass
 
 	print_header()
 	t1 = datetime.now()
