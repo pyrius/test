@@ -29,7 +29,7 @@ def print_version():
 	sys.exit(0) 
 
 def open_file(f_name):
-	with open('log.txt') as f:
+	with open(sys.argv[1]) as f:
 		content = f.readlines()
 	return content
 
@@ -70,6 +70,9 @@ if __name__ == '__main__':
 	for st in content:
 		if re.search(r'show logging log', st):
 			st_log = True
+		if re.search(r'show accounting log', st):
+			#sys.exit(0)
+			break
 
 		if st_log:
 			if re.search(r'ETHPORT-5-IF_DOWN_LINK_FAILURE:\s', st):
